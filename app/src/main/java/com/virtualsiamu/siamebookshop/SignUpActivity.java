@@ -76,8 +76,8 @@ public class SignUpActivity extends AppCompatActivity {
     private void updateNewUserToServer() {
 
         //สร้างไลบาลรี่ติดตั้งก่อน ไปที่ไฟล์ สตักเจอร์ สร้างเสร็จมันจะrun libraryให้ จากนั้นไปลองrunดูว่ากรอกข้อมูลแล้ว
-        // มันกลับไปหน้าแรก แล้วดูที่หน้าphpMyAdmin ก็จะปรากฎข้อมูลที่เรากรอกไปขึ้นมาแล้ว ถ้าไม่มา ให้เช็คไฟล์.php
-        // หรือเช็ค .add
+        // มันกลับไปหน้าแรก แล้วดูที่หน้าphpMyAdmin ก็จะปรากฎข้อมูลที่เรากรอกไปขึ้นมาแล้ว ถ้าไม่มา ให้เช็คไฟล์.
+        // หรือเช็ค .add จากนั้นกูไปจัดการหน้าแรกต่อ activitymain
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody requestBody = new FormEncodingBuilder()
                 // มาจากไฟล์ add user php ที่วางในfilezilla
