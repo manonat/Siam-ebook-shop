@@ -26,7 +26,8 @@
         android:text="sign up"
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
-        android:elegantTextHeight="false" />
+        android:elegantTextHeight="false"
+        android:onClick="clickSigUpSign" />
 
     <LinearLayout
         android:orientation="vertical"
