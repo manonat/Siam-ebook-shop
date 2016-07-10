@@ -1,10 +1,13 @@
 package com.virtualsiamu.siamebookshop;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -103,10 +106,30 @@ public class ServiceActivity extends AppCompatActivity {
                     priceStrings[i] = jsonObject.getString("Price");
                     iconStrings[i] = jsonObject.getString("Cover");
 
-                } //for
+                } //forระบบคลิกเปิด dialog
 
                 MyAdapter myAdapter = new MyAdapter(context, bookStrings, priceStrings, iconStrings);
                 myListView.setAdapter(myAdapter);
+
+                myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        Intent intent = new Intent(ServiceActivity.this, DetailActivity.class);
+                        intent.putExtra("NameLogin", nameString);
+                        intent.putExtra("Surname", surnameString);
+                        intent.putExtra("Book", bookStrings[position]);
+                        intent.putExtra("Price", priceStrings[position]);
+                        intent.putExtra("Icon", iconStrings[position]);
+                        startActivity(intent);
+
+
+                    } // on itemclic
+
+
+
+
+                });
 
 
 
