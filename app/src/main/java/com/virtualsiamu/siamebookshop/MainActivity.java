@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         //explicit  สร้าง construct geter คลาสซ้อนคลาส ทำท่อพ่น url
         private Context context;
-        private String myURL, myUserString, myPasswordString, truePassword;
+        private String myURL, myUserString, myPasswordString, truePassword,
+                loginNameString, loginSurnameString;
         private boolean statusABoolean = true;
         //  จินตานาการว่าเอาเลข ห้า ใส่กล่องกระดาษ เอามือจับในกล่องอะไรออกมา นี่คือ โพเสสเกตเตอร์
         // กด comman n
@@ -99,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
                     if (myUserString.equals(jsonObject.getString("User"))) {
                         statusABoolean = false;
                         truePassword = jsonObject.getString("Password");
+                        loginNameString = jsonObject.getString("Name");
+                        loginSurnameString = jsonObject.getString("Surname");
+
 
 
                     }
@@ -111,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
                     myAlert.myDialog(context, "ไม่มี user นี้",
                             "ไม่มี" + myUserString + "ในฐานข้อมูลของเรา");
                 } else if (myPasswordString.equals(truePassword)) {
-                    Toast.makeText(context, "Welcome", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Welcome" + loginNameString +" " + loginSurnameString,
+                            Toast.LENGTH_SHORT).show();
 
 
                 } else {
