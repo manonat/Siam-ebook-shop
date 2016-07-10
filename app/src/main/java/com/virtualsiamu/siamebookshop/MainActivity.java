@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText usereditText, passwordEditText;
     private String userString, passwordString;
     //gเอาข้อมูลมาแสดง
-    private static final String urlJSON = "http://swiftcodingthai.com/9july/get_user_siam.php";
+    private String urlJSON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         //bindwidget
         usereditText = (EditText) findViewById(R.id.editText5);
         passwordEditText = (EditText) findViewById(R.id.editText6);
+
+        MyConstant myConstant = new MyConstant();
+        urlJSON = myConstant.getUrlJSONuser();
 
 
     }// main method
