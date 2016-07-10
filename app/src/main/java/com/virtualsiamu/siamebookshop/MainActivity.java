@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         //explicit  สร้าง construct geter คลาสซ้อนคลาส ทำท่อพ่น url
         private Context context;
-        private String myURL, myUserString, myPasswordString;
+        private String myURL, myUserString, myPasswordString, truePassword;
         private boolean statusABoolean = true;
         //  จินตานาการว่าเอาเลข ห้า ใส่กล่องกระดาษ เอามือจับในกล่องอะไรออกมา นี่คือ โพเสสเกตเตอร์
         // กด comman n
@@ -97,17 +98,28 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     if (myUserString.equals(jsonObject.getString("User"))) {
                         statusABoolean = false;
+                        truePassword = jsonObject.getString("Password");
 
-                    } else if (statusABoolean) {
-                        MyAlert myAlert = new MyAlert();
-                        myAlert.myDialog(context, "ไม่มี user นี้",
-                         "ไม่มี" + myUserString + "ในฐานข้อมูลของเรา");
-                    } else {
 
                     }
 
 
                 } // for
+
+                if (statusABoolean) {
+                    MyAlert myAlert = new MyAlert();
+                    myAlert.myDialog(context, "ไม่มี user นี้",
+                            "ไม่มี" + myUserString + "ในฐานข้อมูลของเรา");
+                } else if (myPasswordString.equals(truePassword)) {
+                    Toast.makeText(context, "Welcome", Toast.LENGTH_SHORT).show();
+
+
+                } else {
+                    MyAlert myAlert = new MyAlert();
+                    myAlert.myDialog(context, "Password False",
+                            "Please Try Again Password False");
+
+                }
 
 
 
