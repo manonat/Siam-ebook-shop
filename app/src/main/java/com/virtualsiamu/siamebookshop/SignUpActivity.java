@@ -23,6 +23,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText nameEditText, surnameEditText, userEditText, passEditText;
     private  String nameString, surnameString, userString, passwordString;
     private static final String urlPHP = "http://swiftcodingthai.com/9july/add_user_siam.php";
+    //private static final String urlPHP = "http://swiftcodingthai.com/9july/add_user_siam.php";
 
 
 
